@@ -8,19 +8,12 @@ trigger:
 
 variables:
 - group: "CA Monitoring - Variables"
-- group: "CA Monitoring - Keyvault"
 - name: location 
   value: 'uksouth'
 - name: rgTemplateFile
-  value: 'CAMonitoring/Bicep/main.bicep'
+  value: 'Bicep/main.bicep'
 - name: vmTemplateFile  
-  value: 'CAMonitoring/Bicep/vm.bicep'
-- name: azureserviceconnection
-  value: 'F365C-ServiceConnection'
-- name: kvname
-  value: 'CAMonitoring-Keyvault'
-- name: rgkvname
-  value: 'F365C'
+  value: 'Bicep/vm.bicep'
 - name: resourcePath
   value: 'C:\DevOps\M365DSC\Export\AADConditionalAccess'
 - name: resourcePrefix
