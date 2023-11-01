@@ -64,7 +64,7 @@ steps:
 
 - task: AzureFileCopy@5
   inputs:
-    SourcePath: 'CAMonitoring\DSC\M365TenantConfig.ps1'
+    SourcePath: 'DSC\M365TenantConfig.ps1'
     azureSubscription: '$(azureserviceconnection)'
     Destination: 'AzureVMs'
     MachineNames: '$(resourcePrefix)-vm'
@@ -89,7 +89,7 @@ steps:
       -ResourceGroupName "$(resourcePrefix)-rg" `
       -VMName "$(resourcePrefix)-vm" `
       -CommandId "RunPowerShellScript" `
-      -ScriptPath "CAMonitoring\Scripts\installM365DSCModule.ps1"
+      -ScriptPath "Scripts\installM365DSCModule.ps1"
 
 
 - task: AzurePowerShell@5
@@ -102,5 +102,5 @@ steps:
       -ResourceGroupName "$(resourcePrefix)-rg" `
       -VMName "$(resourcePrefix)-vm" `
       -CommandId "RunPowerShellScript" `
-      -ScriptPath "CAMonitoring\Scripts\configureDSC.ps1" `
+      -ScriptPath "Scripts\configureDSC.ps1" `
       -Parameter @{'ResourcePath'='$(resourcePath)';'OrganizationName'='$(entraidtenant)'}
